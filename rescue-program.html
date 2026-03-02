@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covenant Collective Foundation</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-800 selection:bg-blue-100 selection:text-blue-900">
+
+    <!-- Top Bar (Contact Info) -->
+    <div class="bg-slate-900 text-slate-300 py-2 hidden md:block text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex space-x-6">
+                <span class="flex items-center gap-2"><i data-lucide="phone" class="w-3.5 h-3.5 text-blue-400"></i> 1-800-555-HOPE</span>
+                <span class="flex items-center gap-2"><i data-lucide="mail" class="w-3.5 h-3.5 text-blue-400"></i> hello@covenantcollective.org</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-400"></i> 123 Service Rd, City, ST</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 top-0 md:top-9 bg-white/95 backdrop-blur-md border-b border-slate-100 py-4 lg:py-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="bg-blue-600 text-white p-2.5 rounded-xl shadow-md shadow-blue-600/20">
+                        <i data-lucide="heart-handshake" class="w-7 h-7" stroke-width="2.5"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-2xl tracking-tight text-slate-900 leading-none">
+                            Covenant
+                        </span>
+                        <span class="font-semibold text-sm tracking-widest text-blue-600 uppercase mt-0.5">
+                            Collective
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#about" class="text-slate-700 hover:text-blue-600 font-bold transition-colors">About Us</a>
+                    
+                    <!-- Programs Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 text-slate-700 hover:text-blue-600 font-bold transition-colors">
+                            Programs <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-4 w-64 bg-white rounded-2xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 flex flex-col py-3 overflow-hidden">
+                            <a href="#mission" class="px-5 py-2.5 hover:bg-blue-50 text-slate-700 hover:text-blue-600 font-semibold transition-colors">General Programs</a>
+                            <a href="#rent-rescue" class="px-5 py-2.5 hover:bg-blue-50 text-slate-700 hover:text-blue-600 font-semibold transition-colors">Covenant Rent Rescue</a>
+                        </div>
+                    </div>
+
+                    <a href="#values" class="text-slate-700 hover:text-blue-600 font-bold transition-colors">Values</a>
+                    <div class="flex items-center gap-3 ml-4 border-l border-slate-200 pl-8">
+                        <a href="#volunteer" class="text-slate-700 hover:text-blue-600 font-bold transition-colors">Volunteer</a>
+                        <a href="#get-involved" class="bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition-all shadow-md shadow-blue-600/30 hover:shadow-lg hover:-translate-y-0.5">
+                            Donate Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-btn" class="lg:hidden text-slate-900 bg-slate-100 p-2 rounded-lg">
+                    <i id="mobile-menu-icon" data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-slate-100 py-6 px-4 flex-col space-y-4 max-h-[80vh] overflow-y-auto">
+            <a href="#about" class="mobile-link text-slate-700 font-bold p-3 hover:bg-slate-50 rounded-xl">About Us</a>
+            
+            <div class="flex flex-col space-y-2 px-3">
+                <span class="text-slate-400 font-bold uppercase tracking-wider text-xs mb-1">Programs</span>
+                <a href="#mission" class="mobile-link text-slate-700 font-bold p-2 hover:bg-slate-50 rounded-xl pl-4 border-l-2 border-slate-100">General Programs</a>
+                <a href="#rent-rescue" class="mobile-link text-blue-600 font-bold p-2 hover:bg-blue-50 rounded-xl pl-4 border-l-2 border-blue-600">Covenant Rent Rescue</a>
+            </div>
+
+            <a href="#values" class="mobile-link text-slate-700 font-bold p-3 hover:bg-slate-50 rounded-xl">Values</a>
+            <a href="#volunteer" class="mobile-link text-slate-700 font-bold p-3 hover:bg-slate-50 rounded-xl">Volunteer</a>
+            <div class="pt-4 mt-2 border-t border-slate-100">
+                <a href="#get-involved" class="mobile-link bg-blue-600 text-white px-5 py-4 rounded-xl font-bold text-center w-full block shadow-lg shadow-blue-600/20">
+                    Make a Donation
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Overlapping Stats -->
+    <section class="relative pt-40 pb-32 lg:pt-56 lg:pb-48 overflow-hidden bg-slate-900">
+        <div class="absolute inset-0 z-0">
+            <img 
+                src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80" 
+                alt="Volunteers reaching out" 
+                class="w-full h-full object-cover"
+            >
+            <!-- Gradient Overlay for better readability -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/40"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 backdrop-blur-md border border-blue-400/30 text-blue-300 font-bold text-sm mb-6">
+                    <i data-lucide="heart" class="w-4 h-4 fill-blue-400 text-blue-400"></i>
+                    A Christ-centered 501(c)(3) Nonprofit
+                </div>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 leading-[1.1]">
+                    Love in Action <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200">
+                        Changes Lives
+                    </span>
+                </h1>
+                <p class="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl font-medium">
+                    Rooted in faith and guided by the teachings of Jesus, we exist to serve others with compassion, dignity, and purpose — bringing hope where it’s needed most.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#get-involved" class="px-8 py-4 rounded-full bg-blue-600 text-white font-bold text-lg hover:bg-blue-500 transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] flex items-center justify-center gap-2">
+                        Donate Today <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#mission" class="px-8 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-lg hover:bg-white/20 transition-all flex items-center justify-center">
+                        See Our Work
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Covenant Rent Rescue Program Section -->
+    <section id="rent-rescue" class="py-24 lg:py-32 bg-slate-50 relative border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 font-bold text-sm mb-6">
+                    <i data-lucide="home" class="w-4 h-4"></i>
+                    Special Initiative
+                </div>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">Covenant Rent Rescue Program</h2>
+                <p class="text-2xl font-bold text-blue-600 italic mb-8">“Relief for today. Stewardship for tomorrow.”</p>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    The Covenant Rent Rescue Program provides one month of rent assistance <span class="font-bold text-slate-900">($1,500–$3,000)</span> to families experiencing temporary financial hardship such as job loss, medical emergencies, or unexpected crises.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-20">
+                <!-- Structured Reset -->
+                <div class="bg-white p-8 lg:p-10 rounded-3xl shadow-xl border border-slate-100">
+                    <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-600/30">
+                        <i data-lucide="trending-up" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-slate-900 mb-4">A Structured Reset</h3>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        Unlike traditional aid programs, this is not just financial relief — it is a structured reset. The goal is not dependency, but restoration — helping families regain stability while learning sustainable financial discipline. Every recipient must complete:
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-800 font-medium">A mandatory financial planning session</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-800 font-medium">A detailed income vs. expense audit</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-800 font-medium">Creation of a survival budget</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-800 font-medium">A 90-day stabilization plan</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-800 font-medium">Biblical stewardship guidance</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-slate-800 font-medium">A follow-up accountability check</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Safeguards -->
+                <div class="bg-slate-900 text-white p-8 lg:p-10 rounded-3xl shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 text-slate-800 opacity-50">
+                        <i data-lucide="shield-check" class="w-64 h-64"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="shield" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-2xl font-extrabold mb-8">Program Safeguards</h3>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4">
+                                <div class="bg-blue-600 p-2 rounded-lg flex-shrink-0 mt-1">
+                                    <i data-lucide="landmark" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-white">Direct Payments</h4>
+                                    <p class="text-slate-400">Assistance is paid directly to landlords, never to the individual.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="bg-blue-600 p-2 rounded-lg flex-shrink-0 mt-1">
+                                    <i data-lucide="file-check" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-white">Verified Need</h4>
+                                    <p class="text-slate-400">Full documentation and proof of income/hardship are strictly required.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="bg-blue-600 p-2 rounded-lg flex-shrink-0 mt-1">
+                                    <i data-lucide="calendar-x" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-white">One-Time Aid</h4>
+                                    <p class="text-slate-400">No repeat assistance permitted within a 12-month period.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="bg-blue-600 p-2 rounded-lg flex-shrink-0 mt-1">
+                                    <i data-lucide="users" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg text-white">Mandatory Counseling</h4>
+                                    <p class="text-slate-400">Participation in our financial counseling sessions is non-negotiable.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#rent-application" class="inline-flex items-center gap-3 px-10 py-5 rounded-full bg-blue-600 text-white font-extrabold text-xl hover:bg-blue-700 transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105">
+                    Apply Now <i data-lucide="arrow-down-circle" class="w-6 h-6"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rent Rescue Application Form Section -->
+    <section id="rent-application" class="py-24 bg-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Rent Rescue Application</h2>
+                <p class="text-lg text-slate-600">Please complete all 5 sections below honestly and accurately.</p>
+            </div>
+
+            <form action="#" method="POST" enctype="multipart/form-data" class="space-y-8">
+                
+                <!-- Step 1: Basic Information -->
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <div class="flex items-center gap-4 mb-8 border-b border-slate-200 pb-4">
+                        <div class="w-10 h-10 bg-blue-600 text-white font-extrabold rounded-full flex items-center justify-center text-lg shadow-md shadow-blue-600/30">1</div>
+                        <h3 class="text-2xl font-bold text-slate-900">Basic Information</h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Full Name</label>
+                            <input type="text" required class="w-full px-5 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Phone Number</label>
+                            <input type="tel" required class="w-full px-5 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none" placeholder="(555) 123-4567">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Email Address</label>
+                            <input type="email" required class="w-full px-5 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none" placeholder="john@example.com">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Current Address</label>
+                            <input type="text" required class="w-full px-5 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none" placeholder="123 Main St, Apt 4B, City, State, ZIP">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Landlord Name & Phone Number</label>
+                            <input type="text" required class="w-full px-5 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none" placeholder="Jane Smith - (555) 987-6543">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Financial Snapshot -->
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <div class="flex items-center gap-4 mb-8 border-b border-slate-200 pb-4">
+                        <div class="w-10 h-10 bg-blue-600 text-white font-extrabold rounded-full flex items-center justify-center text-lg shadow-md shadow-blue-600/30">2</div>
+                        <h3 class="text-2xl font-bold text-slate-900">Financial Snapshot</h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Monthly Take-Home Income</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500 font-bold">$</div>
+                                <input type="number" required class="w-full pl-8 pr-5 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Monthly Rent Amount</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500 font-bold">$</div>
+                                <input type="number" required class="w-full pl-8 pr-5 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Amount Currently Owed (if behind)</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500 font-bold">$</div>
+                                <input type="number" class="w-full pl-8 pr-5 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Number of People in Household</label>
+                            <input type="number" required class="w-full px-5 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none" placeholder="e.g. 3">
+                        </div>
+                        
+                        <!-- File Uploads -->
+                        <div class="md:col-span-2 mt-4 p-6 bg-white border-2 border-dashed border-slate-300 rounded-2xl">
+                            <label class="block text-sm font-bold text-slate-900 mb-2 text-center">Upload Required Documents</label>
+                            <p class="text-xs text-slate-500 text-center mb-4">Please upload a copy of your current lease AND recent proof of income (paystubs, etc.)</p>
+                            <input type="file" multiple required class="block w-full text-sm text-slate-500 file:mr-4 file:py-3 file:px-6 file:rounded-full file:border-0 file:text-sm file:font-bold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Your Situation -->
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <div class="flex items-center gap-4 mb-8 border-b border-slate-200 pb-4">
+                        <div class="w-10 h-10 bg-blue-600 text-white font-extrabold rounded-full flex items-center justify-center text-lg shadow-md shadow-blue-600/30">3</div>
+                        <h3 class="text-2xl font-bold text-slate-900">Your Situation</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">What caused your current hardship?</label>
+                            <input type="text" required class="w-full px-5 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none" placeholder="e.g., Unexpected medical bills, job loss...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">When did this begin?</label>
+                            <input type="text" required class="w-full px-5 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none" placeholder="e.g., Two months ago, October 2023...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">What steps have you already taken to fix it?</label>
+                            <input type="text" required class="w-full px-5 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none" placeholder="e.g., Applying for new jobs, reducing expenses...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Your Story -->
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <div class="flex items-center gap-4 mb-8 border-b border-slate-200 pb-4">
+                        <div class="w-10 h-10 bg-blue-600 text-white font-extrabold rounded-full flex items-center justify-center text-lg shadow-md shadow-blue-600/30">4</div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900">Your Story</h3>
+                            <p class="text-sm text-slate-500 font-medium">Important: This is where heart and responsibility show.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Please share your story. What happened, and what would this assistance mean for your family?</label>
+                        <textarea required rows="6" class="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none resize-y" placeholder="Tell us your story..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Step 5: Commitment -->
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <div class="flex items-center gap-4 mb-8 border-b border-slate-200 pb-4">
+                        <div class="w-10 h-10 bg-blue-600 text-white font-extrabold rounded-full flex items-center justify-center text-lg shadow-md shadow-blue-600/30">5</div>
+                        <h3 class="text-2xl font-bold text-slate-900">Commitment & Signature</h3>
+                    </div>
+                    
+                    <div class="space-y-4 mb-8">
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <input type="checkbox" required class="mt-1 w-5 h-5 text-blue-600 rounded border-slate-300 focus:ring-blue-600">
+                            <span class="text-slate-700 font-medium group-hover:text-slate-900 transition-colors">I understand this is a one-time assistance program.</span>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <input type="checkbox" required class="mt-1 w-5 h-5 text-blue-600 rounded border-slate-300 focus:ring-blue-600">
+                            <span class="text-slate-700 font-medium group-hover:text-slate-900 transition-colors">I agree to attend a mandatory financial planning session.</span>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <input type="checkbox" required class="mt-1 w-5 h-5 text-blue-600 rounded border-slate-300 focus:ring-blue-600">
+                            <span class="text-slate-700 font-medium group-hover:text-slate-900 transition-colors">I understand funds will be paid directly to my landlord.</span>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <input type="checkbox" required class="mt-1 w-5 h-5 text-blue-600 rounded border-slate-300 focus:ring-blue-600">
+                            <span class="text-slate-700 font-medium group-hover:text-slate-900 transition-colors">I certify all information provided is truthful and accurate.</span>
+                        </label>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 pt-6 border-t border-slate-200">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Digital Signature (Type Full Name)</label>
+                            <input type="text" required class="w-full px-5 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none font-medium italic" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Date</label>
+                            <input type="date" required class="w-full px-5 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all outline-none">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center pt-4">
+                    <button type="submit" class="inline-flex items-center gap-3 px-12 py-5 rounded-full bg-blue-600 text-white font-extrabold text-xl hover:bg-blue-700 transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:scale-105 w-full md:w-auto justify-center">
+                        Submit Application <i data-lucide="send" class="w-6 h-6"></i>
+                    </button>
+                    <p class="text-slate-500 text-sm mt-4 font-medium"><i data-lucide="lock" class="w-4 h-4 inline-block -mt-1 mr-1"></i> Your information is secure and confidential.</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values" class="py-24 lg:py-32 relative bg-slate-900">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0 opacity-20">
+            <img 
+                src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" 
+                alt="Texture" 
+                class="w-full h-full object-cover grayscale"
+            >
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-sm font-bold tracking-widest text-blue-400 uppercase mb-4">Our Core Values</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold text-white mb-6">The Principles That Guide Us</h3>
+                <div class="h-1 w-20 bg-blue-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Value 1 -->
+                <div class="flex flex-col sm:flex-row gap-6 p-8 rounded-3xl bg-slate-800/80 backdrop-blur border border-slate-700 hover:bg-slate-800 hover:border-blue-500/50 transition-all group">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 rounded-2xl bg-blue-500/20 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                            <i data-lucide="heart" class="w-8 h-8"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Faith in Action</h4>
+                        <p class="text-slate-400 leading-relaxed text-lg">
+                            We believe true faith expresses itself through love, service, and tangible care for those around us.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="flex flex-col sm:flex-row gap-6 p-8 rounded-3xl bg-slate-800/80 backdrop-blur border border-slate-700 hover:bg-slate-800 hover:border-blue-500/50 transition-all group">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 rounded-2xl bg-blue-500/20 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                            <i data-lucide="globe" class="w-8 h-8"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Compassion without Borders</h4>
+                        <p class="text-slate-400 leading-relaxed text-lg">
+                            Every person deserves respect, kindness, and support, regardless of their background or circumstance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="flex flex-col sm:flex-row gap-6 p-8 rounded-3xl bg-slate-800/80 backdrop-blur border border-slate-700 hover:bg-slate-800 hover:border-blue-500/50 transition-all group">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 rounded-2xl bg-blue-500/20 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                            <i data-lucide="users" class="w-8 h-8"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Community Partnership</h4>
+                        <p class="text-slate-400 leading-relaxed text-lg">
+                            We collaborate with ministries, churches, volunteers, and neighbors to multiply impact and build stronger communities.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Value 4 -->
+                <div class="flex flex-col sm:flex-row gap-6 p-8 rounded-3xl bg-slate-800/80 backdrop-blur border border-slate-700 hover:bg-slate-800 hover:border-blue-500/50 transition-all group">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 rounded-2xl bg-blue-500/20 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                            <i data-lucide="leaf" class="w-8 h-8"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Holistic Support</h4>
+                        <p class="text-slate-400 leading-relaxed text-lg">
+                            We serve bodies and minds — feeding the hungry, uplifting the overlooked, and encouraging growth through discipleship.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action (Get Involved) -->
+    <section id="get-involved" class="relative overflow-hidden bg-white">
+        <div class="grid lg:grid-cols-2">
+            <!-- Image Half -->
+            <div class="relative h-64 lg:h-auto hidden lg:block">
+                <img 
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                    alt="Hands together" 
+                    class="absolute inset-0 w-full h-full object-cover"
+                >
+            </div>
+            
+            <!-- Content Half -->
+            <div class="bg-blue-600 px-6 py-20 lg:px-16 lg:py-32 relative">
+                <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+                    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-blue-500/40 blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-blue-700/40 blur-3xl"></div>
+                </div>
+
+                <div class="relative z-10 max-w-xl mx-auto lg:mx-0">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="h-1 w-12 bg-blue-300 rounded-full"></div>
+                        <h2 class="text-sm font-bold tracking-widest text-blue-100 uppercase">Join The Mission</h2>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">Make Hope Visible Today.</h2>
+                    <p class="text-xl text-blue-100 mb-10 leading-relaxed">
+                        Whether through volunteering, donating, or partnering with us, there are many ways to extend God’s love. Together, we can make lives better — one person at a time.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="px-8 py-4 rounded-full bg-white text-blue-700 font-extrabold text-lg hover:bg-slate-50 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105">
+                            Make a Donation
+                        </button>
+                        <button class="px-8 py-4 rounded-full bg-transparent text-white font-extrabold text-lg hover:bg-blue-700 border-2 border-white/50 hover:border-white transition-all">
+                            Become a Volunteer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 pt-20 pb-10 border-t-4 border-blue-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
+                
+                <!-- Brand Col -->
+                <div class="lg:col-span-5">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-blue-600 text-white p-2.5 rounded-xl">
+                            <i data-lucide="heart-handshake" class="w-6 h-6" stroke-width="2.5"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-extrabold text-xl tracking-tight text-white leading-none">
+                                Covenant
+                            </span>
+                            <span class="font-semibold text-xs tracking-widest text-blue-500 uppercase mt-0.5">
+                                Collective
+                            </span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed mb-8 max-w-md text-lg">
+                        A Christ-centered 501(c)(3) nonprofit organization bringing hope where it’s needed most through practical service and unwavering love.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors cursor-pointer text-slate-300">
+                            <span class="font-bold text-sm">FB</span>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors cursor-pointer text-slate-300">
+                            <span class="font-bold text-sm">IG</span>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors cursor-pointer text-slate-300">
+                            <span class="font-bold text-sm">YT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Links Col -->
+                <div class="lg:col-span-3">
+                    <h4 class="text-white font-extrabold text-lg mb-6 tracking-wide">Explore</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#about" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-blue-600"></i> About Our Foundation</a></li>
+                        <li><a href="#mission" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-blue-600"></i> Programs & Impact</a></li>
+                        <li><a href="#values" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-blue-600"></i> Our Core Values</a></li>
+                        <li><a href="#volunteer" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-blue-600"></i> Volunteer Opportunities</a></li>
+                        <li><a href="#contact" class="hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-blue-600"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Col -->
+                <div class="lg:col-span-4">
+                    <h4 class="text-white font-extrabold text-lg mb-6 tracking-wide">Get In Touch</h4>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-blue-500 mt-1 flex-shrink-0"></i>
+                            <span>123 Service Road, Suite 200<br>Cityville, ST 12345</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-blue-500 flex-shrink-0"></i>
+                            <span>1-800-555-HOPE (4673)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-blue-500 flex-shrink-0"></i>
+                            <span>hello@covenantcollective.org</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-sm font-medium">
+                <p>&copy; <span id="current-year"></span> Covenant Collective Foundation. All rights reserved.</p>
+                <p class="mt-4 md:mt-0 text-slate-500">
+                    Designed & Developed by <a href="#" class="text-blue-500 hover:text-blue-400 transition-colors font-bold tracking-wide">Arifuzzaman Tusar</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Interactivity -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Dynamic Year in Footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                // Scrolled state
+                navbar.className = 'fixed w-full z-50 transition-all duration-300 top-0 bg-white shadow-lg py-3';
+            } else {
+                // Top state
+                navbar.className = 'fixed w-full z-50 transition-all duration-300 top-0 md:top-9 bg-white/95 backdrop-blur-md border-b border-slate-100 py-4 lg:py-5';
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileIcon = document.getElementById('mobile-menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let menuOpen = false;
+
+        function toggleMenu() {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                mobileIcon.setAttribute('data-lucide', 'x');
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                mobileIcon.setAttribute('data-lucide', 'menu');
+            }
+            // Re-render the specific icon that was swapped
+            lucide.createIcons();
+        }
+
+        mobileBtn.addEventListener('click', toggleMenu);
+
+        // Close mobile menu when clicking a link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(menuOpen) toggleMenu();
+            });
+        });
+    </script>
+</body>
+</html>
